@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Canvas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Real-Time Drawing Canvas</h1>
+
+    <div id="room-setup" class="container">
+        <h2>Enter Room ID & Name to Join</h2>
+        <input type="text" id="usernameInput" placeholder="Enter Your Name">
+        <input type="text" id="roomIdInput" placeholder="Enter Room ID (e.g., room-101)">
+        <button id="joinRoomBtn">Join</button>
+        <p class="note">Users with the same ID join the same canvas.</p>
+    </div>
+
+    <div id="app-container" style="display: none;">
+        <div class="toolbar">
+            <label for="color">Color:</label>
+            <input type="color" id="color" value="#000000">
+
+            <label for="strokeWidth">Stroke:</label>
+            <input type="range" id="strokeWidth" min="1" max="50" value="5">
+            <span id="strokeValue">5</span>
+
+            <button id="brush">Brush</button>
+            <button id="eraser">Eraser</button>
+            
+            <button id="undo-btn">Undo</button> 
+            <button id="redo-btn">Redo</button>
+        </div>
+    
+        <canvas id="drawing-canvas"></canvas>
+        <canvas id="cursor-layer"></canvas>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="canvas.js"></script>
+    <script src="websocket.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
